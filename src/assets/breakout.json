@@ -1,0 +1,1 @@
+[{"name":"paddle","x":0,"y":0,"width":64,"height":16},{"name":"brick","x":0,"y":17,"width":32,"height":16},{"name":"heart","x":33,"y":17,"width":10,"height":9},{"name":"empty_heart","x":44,"y":17,"width":10,"height":9},{"name":"ball","x":0,"y":33,"width":8,"height":8}]
