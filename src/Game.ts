@@ -1,10 +1,8 @@
-import { Engine, World } from 'matter-js';
 import SpriteSheet from "./SpriteSheet";
 import GameObject from "./GameObject";
 import Ball from './Ball';
 import Paddle from './Paddle';
 import Input from './Input';
-// import Box from './Box';
 
 interface GameOptions {
   width: number;
@@ -19,14 +17,10 @@ class Game {
   private options: GameOptions;
   public spritesheets: object = {};
   public gameObjects: Array<GameObject>;
-  public engine: Engine;
-  public world: World;
 
   // Game Objects
   private ball: GameObject;
   private paddle: Paddle;
-  // private box: Box;
-  // private ground: Box;
 
   constructor(id?: string, options?: GameOptions) {
     if (options) {
@@ -54,48 +48,15 @@ class Game {
   }
 
   start() {
-    this.engine = Engine.create();
-    this.world = this.engine.world;
-
     this.ball = new Ball(this);
     this.paddle = new Paddle(this);
-    // this.box = new Box(this, {
-    //   size: {
-    //     x: 100,
-    //     y: 100
-    //   },
-    //   position: {
-    //     x: 245,
-    //     y: 200
-    //   },
-    //   boxOptions: {
-    //     // angle: Math.toRad(10)
-    //   }
-    // });
-    // this.ground = new Box(this, {
-    //   size: {
-    //     x: this.width,
-    //     y: 25
-    //   },
-    //   position: {
-    //     x: 0,
-    //     y: this.height - 25
-    //   },
-    //   boxOptions: {
-    //     isStatic: true,
-    //   }
-    // })
 
     new Input(this.paddle);
-    console.log("ENGINE: ", this.engine);
-    Engine.run(this.engine);
 
     // add the game objects to the array
     this.gameObjects = [
       this.ball,
       this.paddle,
-      // this.box,
-      // this.ground,
     ]
   }
 
