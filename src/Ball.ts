@@ -12,6 +12,7 @@ class Ball implements GameObject {
   private height: number;
   private width: number;
   public scale: number;
+
   constructor(game: Game) {
     this.position = {
       x: 10,
