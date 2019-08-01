@@ -1,27 +1,15 @@
-import Paddle from "./Paddle";
+import Vector2 from "./Vector2";
 
 class Input {
-  constructor(paddle: Paddle) {
-    document.addEventListener("keydown", (evt: KeyboardEvent) => {
-      switch (evt.keyCode) {
-        case 37:
-          paddle.moveLeft();
-          break;
-        case 39:
-          paddle.moveRight();
-          break;
-      }
-    });
-    document.addEventListener("keyup", (evt: KeyboardEvent) => {
-      switch (evt.keyCode) {
-        case 37:
-          if (paddle.currentSpeed < 0) paddle.stop();
-          break;
-        case 39:
-          if (paddle.currentSpeed > 0) paddle.stop();
-          break;
-      }
-    });
+  public mousePos: Vector2;
+
+  constructor() {
+    this.mousePos = new Vector2(0, 0);
+    document.getElementById("game").addEventListener("mousemove", this.mouseMove);
+  }
+
+  mouseMove = (evt: MouseEvent) => {
+    this.mousePos = new Vector2(evt.offsetX, evt.offsetY);
   }
 }
 

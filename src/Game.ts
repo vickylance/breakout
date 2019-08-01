@@ -21,6 +21,7 @@ class Game {
   // Game Objects
   private ball: GameObject;
   private paddle: Paddle;
+  public input: Input;
 
   constructor(id?: string, options?: GameOptions) {
     if (options) {
@@ -48,10 +49,10 @@ class Game {
   }
 
   start() {
+    this.input = new Input();
     this.ball = new Ball(this);
     this.paddle = new Paddle(this);
-
-    new Input(this.paddle);
+    console.log("start")
 
     // add the game objects to the array
     this.gameObjects = [

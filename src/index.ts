@@ -8,7 +8,6 @@ import * as BreakoutData from "./assets/breakout.json";
 Math.__proto__.toRad = (deg) => deg * (Math.PI/180);
 Math.__proto__.toDeg = (rad) => rad * (180/Math.PI);
 
-// create a new game obbject
 let game = new Game("game", {
   width: 400,
   height: 400,
@@ -25,7 +24,7 @@ function gameLoop(timeStamp) {
   game.update(deltaTime);
   game.draw();
 
-  requestAnimationFrame(gameLoop);
+  requestAnimationFrame(gameLoop); // run the game loop at 60 fps
 }
 
-requestAnimationFrame(gameLoop);
+requestAnimationFrame(gameLoop); // start the game loop

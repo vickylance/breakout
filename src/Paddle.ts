@@ -7,15 +7,11 @@ import Vector2 from './Vector2';
 class Paddle implements GameObject {
   private height: number;
   private width: number;
-  private maxSpeed: number;
-  public currentSpeed: number;
-  public position: Vector2;
   private game: Game;
+  public position: Vector2;
   public sprite: Sprite;
 
   constructor(game: Game) {
-    this.maxSpeed = 100;
-    this.currentSpeed = 0;
     this.game = game;
     this.sprite = this.game.spritesheets["main"].getImage("paddle");
     this.height = this.sprite.height;
@@ -42,22 +38,10 @@ class Paddle implements GameObject {
   }
 
   update(deltaTime: number) {
-    this.position.x += this.currentSpeed / deltaTime;
+    this.position.x = this.game.input.mousePos.x;
     if (this.position.x < 0) this.position.x = 0;
     if (this.position.x + this.width > this.game.width)
       this.position.x = this.game.width - this.width;
-  }
-
-  moveLeft() {
-    this.currentSpeed = -this.maxSpeed;
-  }
-
-  moveRight() {
-    this.currentSpeed = this.maxSpeed;
-  }
-
-  stop() {
-    this.currentSpeed = 0;
   }
 }
 
