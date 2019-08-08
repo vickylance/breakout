@@ -2,7 +2,7 @@ import Game from "./Game";
 import SpriteSheet from "./SpriteSheet";
 
 // import assets
-import * as BreakoutSpritesheet from "./assets/breakout.png";
+import BreakoutSpritesheet from "./assets/breakout.png";
 import * as BreakoutData from "./assets/breakout.json";
 
 Math.__proto__.toRad = (deg) => deg * (Math.PI/180);
@@ -12,7 +12,8 @@ let game = new Game("game", {
   width: 400,
   height: 400,
 });
-game.loadSpritesheet(new SpriteSheet(BreakoutSpritesheet.default, BreakoutData, "main"));
+
+game.loadSpritesheet(new SpriteSheet(BreakoutSpritesheet, BreakoutData, "main"));
 game.start();
 
 let lastTime = 0;

@@ -4,6 +4,8 @@ import Ball from './Ball';
 import Paddle from './Paddle';
 import Input from './Input';
 
+import * as Level1 from './assets/level1.json';
+
 interface GameOptions {
   width: number;
   height: number;
@@ -42,6 +44,7 @@ class Game {
     this.ctx = this.canvas.getContext("2d");
     this.width = this.canvas.getBoundingClientRect().width;
     this.height = this.canvas.getBoundingClientRect().height;
+    // console.log(Level1);
   }
 
   loadSpritesheet(spr: SpriteSheet) {
@@ -52,7 +55,8 @@ class Game {
     this.input = new Input();
     this.ball = new Ball(this);
     this.paddle = new Paddle(this);
-    console.log("start")
+
+    console.log("generating bricks");
 
     // add the game objects to the array
     this.gameObjects = [

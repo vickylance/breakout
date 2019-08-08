@@ -297,7 +297,7 @@ function () {
 
     this.ctx = this.canvas.getContext("2d");
     this.width = this.canvas.getBoundingClientRect().width;
-    this.height = this.canvas.getBoundingClientRect().height;
+    this.height = this.canvas.getBoundingClientRect().height; // console.log(Level1);
   }
 
   Game.prototype.loadSpritesheet = function (spr) {
@@ -308,7 +308,7 @@ function () {
     this.input = new Input_1["default"]();
     this.ball = new Ball_1["default"](this);
     this.paddle = new Paddle_1["default"](this);
-    console.log("start"); // add the game objects to the array
+    console.log("generating bricks"); // add the game objects to the array
 
     this.gameObjects = [this.ball, this.paddle];
   };
@@ -423,7 +423,7 @@ var Game_1 = __importDefault(require("./Game"));
 var SpriteSheet_1 = __importDefault(require("./SpriteSheet")); // import assets
 
 
-var BreakoutSpritesheet = __importStar(require("./assets/breakout.png"));
+var breakout_png_1 = __importDefault(require("./assets/breakout.png"));
 
 var BreakoutData = __importStar(require("./assets/breakout.json"));
 
@@ -439,7 +439,7 @@ var game = new Game_1["default"]("game", {
   width: 400,
   height: 400
 });
-game.loadSpritesheet(new SpriteSheet_1["default"](BreakoutSpritesheet["default"], BreakoutData, "main"));
+game.loadSpritesheet(new SpriteSheet_1["default"](breakout_png_1["default"], BreakoutData, "main"));
 game.start();
 var lastTime = 0;
 
@@ -481,7 +481,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51218" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61271" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
